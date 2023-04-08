@@ -10,11 +10,10 @@ const Starships = ({items}) => {
         <div className="container mt-3 ">
             <Row xs={1} md={2} className="g-4">
                 {items.map((item) => (
-                    <Col>
-                        <Link to={`/starship/${(item.url).match(/[0-9]+/)}`}>
+                    <Col key={(item.url).match(/[0-9]+/)}>
+                        <Link to={`/starships/${(item.url).match(/[0-9]+/)}`}>
                             <Card
                                 bg="dark"
-                                key={item}
                                 border="secondary"
                                 text="white"
                                 className="mb-2"
