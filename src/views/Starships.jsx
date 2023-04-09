@@ -5,11 +5,11 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from "react-router-dom";
 
-const Starships = ({items}) => {
+const Starships = ({starships}) => {
     return ( 
         <div className="container mt-3 ">
             <Row xs={1} md={2} className="g-4">
-                {items.map((item) => (
+                {starships.map((item) => (
                     <Col key={(item.url).match(/[0-9]+/)}>
                         <Link to={`/starships/${(item.url).match(/[0-9]+/)}`}>
                             <Card

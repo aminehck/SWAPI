@@ -4,8 +4,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 // import Card from 'react-bootstrap/Card';
-import useFetch from "./useFetch";
-import Loading from './components/Loading';
+import useFetch from "../hooks/useFetch";
+import Loading from '../components/Loading';
 import { useNavigate, useParams } from "react-router-dom";
 
 const Starship = () => {

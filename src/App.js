@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
 import Home from "./Home";
-import Starship from "./Starship";
+import Starship from "./views/Starship";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
