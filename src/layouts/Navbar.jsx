@@ -9,7 +9,7 @@ const Navbar = () => {
             </NavLink>
             <nav className="nav nav-masthead justify-content-center float-md-end">
                 <NavLink className="nav-link" to="/">Spaceships</NavLink>
-                <NavLink className="nav-link" to="/planets">Planets</NavLink>
+                <NavLink className="nav-link" to="/pilots">Pilots</NavLink>
                 <NavLink className="nav-link" to="/films">Films</NavLink>
             </nav>
         </header>

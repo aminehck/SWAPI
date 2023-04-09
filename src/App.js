@@ -4,6 +4,11 @@ import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
 import Home from "./Home";
 import Starship from "./views/Starship";
+import Films from "./views/Films";
+import Film from "./views/Film";
+import Pilot from "./views/Pilot";
+import Pilots from "./views/Pilots";
+import NotFound from "./components/Notfound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -14,7 +19,13 @@ function App() {
 					<Navbar />
 					<Routes>
 						<Route exact path="/" element={<Home/>} />
-						<Route exact path="/starships/:id" element={<Starship/>} />
+						<Route path="/starships" element={<Home/>} />
+						<Route path="/starships/:id" element={<Starship/>} />
+						<Route path="/films" element={<Films/>} />
+						<Route path="/films/:id" element={<Film/>} />
+						<Route path="/pilots" element={<Pilots/>} />
+						<Route path="/pilots/:id" element={<Pilot/>} />
+						<Route path="*" element={<NotFound/>} />
 					</Routes>
 					<Footer/>
 				</div>

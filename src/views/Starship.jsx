@@ -4,13 +4,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Loading from '../components/Loading';
-import { FaUserAstronaut } from "react-icons/fa";
-import { HiFilm } from "react-icons/hi";
 import { useStarship } from "../hooks/useStarship";
+import { api } from '../services/api';
 import { useNavigate, useParams } from "react-router-dom";
 import { useCallback, useEffect, useState } from 'react';
-import { api } from '../services/api';
-import { Link } from "react-router-dom";
+import ItemList from '../components/ItemList';
+import { getIdUrl } from '../utils/getIdUrl';
 
 export default function Starship() {
     
@@ -108,12 +107,7 @@ export default function Starship() {
                                 <div className='additional-info'>
                                     {pilots.length === 0 && (<p>No pilot found !</p>)}
                                     {pilots.map((pilot) => (
-                                        <Link key={pilot} to={pilot.url}>
-                                            <p className='link'>
-                                                - <FaUserAstronaut/>
-                                                <span> {pilot.name}</span>
-                                            </p>
-                                        </Link>
+                                        <ItemList key={pilot.url} name={pilot.name} url={`/pilots/${getIdUrl(pilot.url)}`} icon="pilot" />
                                     ))}
                                 </div>
                             </Col>
@@ -125,12 +119,7 @@ export default function Starship() {
                                 <div className='additional-info'>
                                     {films.length === 0 && (<p>No film found !</p>)}
                                     {films.map((film) => (
-                                        <Link key={film} to={film.url}>
-                                            <p className='link'>
-                                                - <HiFilm/>
-                                                <span> {film.name}</span>
-                                            </p>
-                                        </Link>
+                                        <ItemList key={film.url} name={film.name} url={`/films/${getIdUrl(film.url)}`} icon="film" />
                                     ))}
                                 </div>
                             </Col>
