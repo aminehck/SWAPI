@@ -9,9 +9,9 @@ const Starships = ({starships}) => {
     return ( 
         <div className="container mt-3 ">
             <Row xs={1} md={2} className="g-4">
-                {starships.map((item) => (
-                    <Col key={(item.url).match(/[0-9]+/)}>
-                        <Link to={`/starships/${(item.url).match(/[0-9]+/)}`}>
+                {starships.map((starship) => (
+                    <Col key={(starship.url).match(/[0-9]+/)}>
+                        <Link to={`/starships/${(starship.url).match(/[0-9]+/)}`}>
                             <Card
                                 bg="dark"
                                 border="secondary"
@@ -20,16 +20,16 @@ const Starships = ({starships}) => {
                             >
                                 <Badge bg="warning" className='position-absolute top-0 end-0 rounded-0' text="white">
                                     <h6>
-                                        {item.starship_class}
+                                        {starship.starship_class}
                                     </h6>
                                 </Badge>
                                 <Card.Img variant="top" className='bg-image mt-0' src="https://picsum.photos/250/100" />
                                 <Card.Body>
                                     <Card.Title>
-                                        <h4>{item.name}</h4>
+                                        <h4>{starship.name}</h4>
                                     </Card.Title>
                                     <Card.Text>
-                                        {item.model}
+                                        {starship.model}
                                     </Card.Text>
                                     <Button variant="outline-light">Read more</Button>
                                 </Card.Body>
