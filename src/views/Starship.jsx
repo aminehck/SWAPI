@@ -102,33 +102,37 @@ export default function Starship() {
                         <Row className='mt-3'>
                             <Col md={5}>    
                                 <h3 className='mt-3'>
-                                    Piltos List
+                                    Piltos
                                 </h3>
                                 <hr />
-                                {pilots.length === 0 && (<p>No pilot found !</p>)}
-                                {pilots.map((pilot) => (
-                                    <Link key={pilot} to={pilot.url}>
-                                        <p className='link'>
-                                            - <FaUserAstronaut/>
-                                            <span> {pilot.name}</span>
-                                        </p>
-                                    </Link>
-                                ))}
+                                <div className='additional-info'>
+                                    {pilots.length === 0 && (<p>No pilot found !</p>)}
+                                    {pilots.map((pilot) => (
+                                        <Link key={pilot} to={pilot.url}>
+                                            <p className='link'>
+                                                - <FaUserAstronaut/>
+                                                <span> {pilot.name}</span>
+                                            </p>
+                                        </Link>
+                                    ))}
+                                </div>
                             </Col>
                             <Col md={7}>    
                                 <h3 className='mt-3'>
-                                    Films List
+                                    Films
                                 </h3>
                                 <hr />
-                                {films.length === 0 && (<p>No film found !</p>)}
-                                {films.map((film) => (
-                                    <Link key={film} to={film.url}>
-                                        <p className='link'>
-                                            - <HiFilm/>
-                                            <span> {film.name}</span>
-                                        </p>
-                                    </Link>
-                                ))}
+                                <div className='additional-info'>
+                                    {films.length === 0 && (<p>No film found !</p>)}
+                                    {films.map((film) => (
+                                        <Link key={film} to={film.url}>
+                                            <p className='link'>
+                                                - <HiFilm/>
+                                                <span> {film.name}</span>
+                                            </p>
+                                        </Link>
+                                    ))}
+                                </div>
                             </Col>
                         </Row>
                     ) }

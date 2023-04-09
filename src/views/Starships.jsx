@@ -4,14 +4,15 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from "react-router-dom";
+import { getIdUrl } from '../utils/getIdUrl';
 
 const Starships = ({starships}) => {
     return ( 
         <div className="container mt-3 ">
             <Row xs={1} md={2} className="g-4">
                 {starships.map((starship) => (
-                    <Col key={(starship.url).match(/[0-9]+/)}>
-                        <Link to={`/starships/${(starship.url).match(/[0-9]+/)}`}>
+                    <Col key={getIdUrl(starship.url)}>
+                        <Link to={`/starships/${getIdUrl(starship.url)}`}>
                             <Card
                                 bg="dark"
                                 border="secondary"

@@ -111,3 +111,11 @@ a {
 .link:hover {
   color: #f1c40f
 }
+
+/* Additional infos  */
+
+.additional-info {
+  background-color: #333;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
