@@ -16,14 +16,18 @@ const Starships = ({items}) => {
                                 bg="dark"
                                 border="secondary"
                                 text="white"
-                                className="mb-2"
+                                className="hover-overlay mb-2"
                             >
                                 <Badge bg="warning" className='position-absolute top-0 end-0 rounded-0' text="white">
-                                    {item.starship_class}
+                                    <h6>
+                                        {item.starship_class}
+                                    </h6>
                                 </Badge>
-                                <Card.Img variant="top" className='mt-0' src="https://picsum.photos/250/100" />
+                                <Card.Img variant="top" className='bg-image mt-0' src="https://picsum.photos/250/100" />
                                 <Card.Body>
-                                    <Card.Title>{item.name}</Card.Title>
+                                    <Card.Title>
+                                        <h4>{item.name}</h4>
+                                    </Card.Title>
                                     <Card.Text>
                                         {item.model}
                                     </Card.Text>

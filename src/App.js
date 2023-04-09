@@ -1,16 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import Navbar from "./Navbar";
-import Starship from "./Starship";
-import Footer from "./Footer";
+import Navbar from "./layouts/Navbar";
+import Footer from "./layouts/Footer";
 import Home from "./Home";
+import Starship from "./Starship";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
 		<Router>
 			<div className="d-flex h-100 text-white bg-dark">
-				<div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+				<div className="cover-container container d-flex w-100 h-100 p-3 mx-auto flex-column">
 					<Navbar />
 					<Routes>
 						<Route exact path="/" element={<Home/>} />
