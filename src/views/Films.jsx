@@ -12,7 +12,7 @@ const Films = ({films}) => {
             <h1 className="mb-4 text-center">
                 <HiFilm/> Films
             </h1>
-            <Row md={4} className="justify-content-center g-4">
+            <Row xs={1} sm={2} md={3} lg={4} className="justify-content-center g-4">
                 {films.map((film) => (
                     <Col key={getIdUrl(film.url)}>
                         <Link to={`/films/${getIdUrl(film.url)}`}>

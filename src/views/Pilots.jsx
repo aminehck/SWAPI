@@ -12,7 +12,7 @@ const Pilots = ({pilots}) => {
             <h1 className="mb-4 text-center">
                 <FaUserAstronaut/> Pilots
             </h1>
-            <Row md={5} className="justify-content-center g-4">
+            <Row xs={2} md={3} lg={5} className="justify-content-center g-4">
                 {pilots.map((pilot) => (
                     <Col key={getIdUrl(pilot.url)}>
                         <Link to={`/pilots/${getIdUrl(pilot.url)}`}>

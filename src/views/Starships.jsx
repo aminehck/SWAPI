@@ -13,7 +13,7 @@ const Starships = ({starships}) => {
             <h1 className='mb-4 text-center'>
                 <FaSpaceShuttle/> Spaceships
             </h1>
-            <Row md={2} className="g-4">
+            <Row xs={1} md={2} className="g-4">
                 {starships.map((starship) => (
                     <Col key={getIdUrl(starship.url)}>
                         <Link to={`/starships/${getIdUrl(starship.url)}`}>
