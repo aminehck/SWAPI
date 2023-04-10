@@ -4,12 +4,15 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from "react-router-dom";
 import { getIdUrl } from '../utils/getIdUrl';
+import { HiFilm } from "react-icons/hi";
 
 const Films = ({films}) => {
     return ( 
         <div className="container mt-3 ">
-            <h1 className="mb-3">Films</h1>
-            <Row md={3} className="justify-content-center g-4">
+            <h1 className="mb-4 text-center">
+                <HiFilm/> Films
+            </h1>
+            <Row md={4} className="justify-content-center g-4">
                 {films.map((film) => (
                     <Col key={getIdUrl(film.url)}>
                         <Link to={`/films/${getIdUrl(film.url)}`}>

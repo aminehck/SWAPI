@@ -5,11 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from "react-router-dom";
 import { getIdUrl } from '../utils/getIdUrl';
+import { FaSpaceShuttle } from "react-icons/fa";
 
 const Starships = ({starships}) => {
     return ( 
         <div className="container mt-3 ">
-            <h1 className='mb-3'>Spaceships </h1>
+            <h1 className='mb-4 text-center'>
+                <FaSpaceShuttle/> Spaceships
+            </h1>
             <Row md={2} className="g-4">
                 {starships.map((starship) => (
                     <Col key={getIdUrl(starship.url)}>

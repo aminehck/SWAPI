@@ -4,11 +4,14 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from "react-router-dom";
 import { getIdUrl } from '../utils/getIdUrl';
+import { FaUserAstronaut } from "react-icons/fa";
 
 const Pilots = ({pilots}) => {
     return ( 
         <div className="container mt-3 ">
-            <h1 className="mb-3">Pilots</h1>
+            <h1 className="mb-4 text-center">
+                <FaUserAstronaut/> Pilots
+            </h1>
             <Row md={5} className="justify-content-center g-4">
                 {pilots.map((pilot) => (
                     <Col key={getIdUrl(pilot.url)}>
