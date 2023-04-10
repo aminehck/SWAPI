@@ -62,7 +62,7 @@ export default function Starship() {
                             </h1>
                             <hr />
                             <Row>
-                                <Col>
+                                <Col sm={12}>
                                     <ListGroup as="ul">
                                         <ListGroup.Item as="li">
                                             <b>Model:</b> {starship.model}
@@ -84,7 +84,7 @@ export default function Starship() {
                                         </ListGroup.Item>
                                     </ListGroup>
                                 </Col>
-                                <Col>
+                                <Col sm={12}>
                                     <ListGroup as="ul">
                                     <ListGroup.Item as="li">
                                             <b>Passengers:</b> {starship.passengers}
