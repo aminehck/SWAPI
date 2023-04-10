@@ -49,7 +49,12 @@ export default function Starship() {
                             > 
                                 Go back
                             </Button>
-                            <Image className='bg-image' src={`https://starwars-visualguide.com/assets/img/starships/${getIdUrl(starship.url)}.jpg`} fluid />
+                            <Image 
+                                className='bg-image'
+                                onError = {e => e.target.src = 'https://picsum.photos/500/300'}
+                                src={`https://starwars-visualguide.com/assets/img/starships/${getIdUrl(starship.url)}.jpg`} 
+                                fluid 
+                            />
                         </Col>
                         <Col md={7}>
                             <h1>

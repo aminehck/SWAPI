@@ -28,7 +28,12 @@ const Starships = ({starships}) => {
                                         {starship.starship_class}
                                     </h6>
                                 </Badge>
-                                <Card.Img variant="top" className='bg-image mt-0' src={`https://starwars-visualguide.com/assets/img/starships/${getIdUrl(starship.url)}.jpg`} />
+                                <Card.Img 
+                                    variant="top" 
+                                    onError = {e => e.target.src = 'https://picsum.photos/250/100'}
+                                    className='bg-image mt-0' 
+                                    src={`https://starwars-visualguide.com/assets/img/starships/${getIdUrl(starship.url)}.jpg`} 
+                                />
                                 <Card.Body>
                                     <Card.Title>
                                         <h4>{starship.name}</h4>
