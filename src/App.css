@@ -34,7 +34,7 @@ a {
   height:100%;
   display: flex;
   align-items: center;
-  top: 0;
+  top: 0%;
 }
 
 .loading .spin {
@@ -44,7 +44,7 @@ a {
 
 .cover-container {
   width:100%;
-  
+  min-height:51em
 }
 
 

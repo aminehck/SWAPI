@@ -49,7 +49,7 @@ export default function Starship() {
                             > 
                                 Go back
                             </Button>
-                            <Image className='bg-image' src="https://picsum.photos/1700" fluid />
+                            <Image className='bg-image' src="https://picsum.photos/600" fluid />
                         </Col>
                         <Col md={7}>
                             <h1>

@@ -1,19 +1,18 @@
-import Loading from "./components/Loading";
-import Starships from "./views/Starships";
+import Loading from "../components/Loading";
+import Pilots from "../views/Pilots";
 import Pagination from 'react-bootstrap/Pagination';
-import { api } from "./services/api";
+import { api } from "../services/api";
 import { useCallback, useEffect, useState } from "react";
 
-const Home = () => {
+const PilotsPage = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [starships, setStarships] = useState([]);
+    const [pilots, setPilots] = useState([]);
     const [page, setPage] = useState(1);
     const getData = useCallback(async (page) => {
         try {
-            setStarships([])
-            const response = await api.get(`starships/?page=${page}`);
+            const response = await api.get(`people/?page=${page}`);
             const returnedData = await response.data;
-            setStarships(returnedData.results);
+            setPilots(returnedData.results);
         } catch {
         } finally {
           	setIsLoading(false);
@@ -21,6 +20,7 @@ const Home = () => {
       }, [])
 
     useEffect(() => {
+        setPilots([])
         setIsLoading(true);
         getData(page);
     }, [getData, page]);
@@ -28,7 +28,7 @@ const Home = () => {
     return ( 
         <>
             { isLoading && <Loading />}
-            { starships && <Starships starships={starships} />}
+            { pilots && !isLoading && <Pilots pilots={pilots} />}
             { !isLoading && (
                 <Pagination className="mt-3 justify-content-center">
                     <Pagination.Prev 
@@ -40,7 +40,7 @@ const Home = () => {
                     <Pagination.Item active>{page}</Pagination.Item>
                     <Pagination.Next 
                         onClick={() => setPage((prevState) => prevState + 1)}
-                        disabled={starships.length<10}
+                        disabled={pilots.length<10}
                     >
                         Next
                     </Pagination.Next>
@@ -51,4 +51,4 @@ const Home = () => {
     );
 }
  
-export default Home;
+export default PilotsPage;

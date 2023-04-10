@@ -9,7 +9,8 @@ import { getIdUrl } from '../utils/getIdUrl';
 const Starships = ({starships}) => {
     return ( 
         <div className="container mt-3 ">
-            <Row xs={1} md={2} className="g-4">
+            <h1 className='mb-3'>Spaceships </h1>
+            <Row md={2} className="g-4">
                 {starships.map((starship) => (
                     <Col key={getIdUrl(starship.url)}>
                         <Link to={`/starships/${getIdUrl(starship.url)}`}>
@@ -24,7 +25,7 @@ const Starships = ({starships}) => {
                                         {starship.starship_class}
                                     </h6>
                                 </Badge>
-                                <Card.Img variant="top" className='bg-image mt-0' src="https://picsum.photos/250/100" />
+                                <Card.Img variant="top" className='bg-image mt-0' src={`https://starwars-visualguide.com/assets/img/starships/${getIdUrl(starship.url)}.jpg`} />
                                 <Card.Body>
                                     <Card.Title>
                                         <h4>{starship.name}</h4>
@@ -39,7 +40,7 @@ const Starships = ({starships}) => {
                     </Col>
                 ))}
             </Row>
-            
+
         </div>
      );
 }
