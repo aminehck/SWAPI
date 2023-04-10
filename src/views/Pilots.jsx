@@ -21,7 +21,7 @@ const Pilots = ({pilots}) => {
                             >
                                 <Badge bg="warning" className='position-absolute top-0 end-0 rounded-0' text="white">
                                     <h6>
-                                        {pilot.films.length} {pilot.films.length < 2 ? 'film' : 'films'}
+                                        {pilot.films.length} film{pilot.films.length>1 ? 's' : ''}
                                     </h6>
                                 </Badge>
                                 <Card.Img variant="top" className='bg-image mt-0' src={`https://starwars-visualguide.com/assets/img/characters/${getIdUrl(pilot.url)}.jpg`} />

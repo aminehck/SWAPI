@@ -4,11 +4,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Loading from '../components/Loading';
+import ItemList from '../components/ItemList';
 import { useStarship } from "../hooks/useStarship";
 import { api } from '../services/api';
-import { useNavigate, useParams } from "react-router-dom";
 import { useCallback, useEffect, useState } from 'react';
-import ItemList from '../components/ItemList';
+import { useNavigate, useParams } from "react-router-dom";
 import { getIdUrl } from '../utils/getIdUrl';
 
 export default function Starship() {
@@ -49,51 +49,60 @@ export default function Starship() {
                             > 
                                 Go back
                             </Button>
-                            <Image className='bg-image' src="https://picsum.photos/600" fluid />
+                            <Image className='bg-image' src={`https://starwars-visualguide.com/assets/img/starships/${getIdUrl(starship.url)}.jpg`} fluid />
                         </Col>
                         <Col md={7}>
                             <h1>
                                 {starship.name}
                             </h1>
                             <hr />
-                            <ListGroup as="ul">
-                                <ListGroup.Item as="li">
-                                    <b>Model:</b> {starship.model}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Manufacturer:</b> {starship.manufacturer}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Class:</b> {starship.starship_class}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Cost in credits:</b> {starship.cost_in_credits}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Atmospheric Speed:</b> {starship.max_atmosphering_speed} km/h
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Length:</b> {starship.length} m
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Passengers:</b> {starship.passengers}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Hyperdrive Rating:</b> {starship.hyperdrive_rating}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Cargo capacity:</b> {starship.cargo_capacity}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Crew:</b> {starship.crew}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>Consumables:</b> {starship.consumables}
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li">
-                                    <b>MGLT:</b> {starship.MGLT}
-                                </ListGroup.Item>
-                            </ListGroup>
+                            <Row>
+                                <Col>
+                                    <ListGroup as="ul">
+                                        <ListGroup.Item as="li">
+                                            <b>Model:</b> {starship.model}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Manufacturer:</b> {starship.manufacturer}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Class:</b> {starship.starship_class}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Cost in credits:</b> {starship.cost_in_credits}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Atmospheric Speed:</b> {starship.max_atmosphering_speed} km/h
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Length:</b> {starship.length} m
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Col>
+                                <Col>
+                                    <ListGroup as="ul">
+                                    <ListGroup.Item as="li">
+                                            <b>Passengers:</b> {starship.passengers}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Hyperdrive Rating:</b> {starship.hyperdrive_rating}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Cargo capacity:</b> {starship.cargo_capacity}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Crew:</b> {starship.crew}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>Consumables:</b> {starship.consumables}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item as="li">
+                                            <b>MGLT:</b> {starship.MGLT}
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Col>
+                            </Row>
+                            
                         </Col>
                     </Row>
                     

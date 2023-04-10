@@ -1,22 +1,23 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export function useStarship(starship) {
-    const [pilots, setPilots] = useState([]);
+export function usePilot(pilot) {
+    const [ships, setShips] = useState([]);
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    
-    const getPilots = useCallback(async () => {
+    const [homeWorld, setHomeWorld] = useState( {name: ''} );
+
+    const getShips = useCallback(async () => {
         try {
-            starship?.pilots.forEach((pilot_url) => {
-                fetch(pilot_url)
+            pilot?.starships.forEach((ship_url) => {
+                fetch(ship_url)
                 .then((dataResponse) => dataResponse.json())
-                .then((pilotData) => setPilots((prevState) => {
-                    if (prevState.includes(pilotData.name)) return prevState;
+                .then((shipsData) => setShips((prevState) => {
+                    if (prevState.includes(shipsData.name)) return prevState;
                     return [
                         ...prevState,
                         {
-                            name: pilotData.name,
-                            url: pilotData.url,
+                            name: shipsData.name,
+                            url: shipsData.url,
                         },
                     ];
                 }));
@@ -25,11 +26,11 @@ export function useStarship(starship) {
         } finally {
           setIsLoading(false);
         }
-    }, [starship?.pilots]);
+    }, [pilot?.starships]);
     
     const getFilms = useCallback(async () => {
         try {
-            starship?.films.forEach((filmResponse) => {
+            pilot?.films.forEach((filmResponse) => {
                 fetch(filmResponse)
                 .then((dataResponse) => dataResponse.json())
                 .then((filmData) => setFilms((prevState) => {
@@ -47,17 +48,33 @@ export function useStarship(starship) {
         } finally {
           setIsLoading(false);
         }
-    }, [starship?.films]);
+    }, [pilot?.films]);
+
+    const getHomeWorld = useCallback(async () => {
+        try {
+            if (!pilot?.homeworld) return;
+            const response = await fetch(pilot.homeworld);
+            const homeWorldData = await response.json();
+            setHomeWorld( {name: homeWorldData.name} );
+        } catch {
+        } finally {
+            setIsLoading(false);
+        }
+      }, [pilot?.homeworld]);
 
     useEffect(() => {
         setIsLoading(true);
-        getPilots();
-    }, [getPilots]);
+        getShips();
+    }, [getShips]);
 
     useEffect(() => {
         setIsLoading(true);
         getFilms();
     }, [getFilms]);
 
-  return { pilots, films, isLoading };
+    useEffect(() => {
+        getHomeWorld();
+      }, [getHomeWorld]);
+
+  return { ships, films, homeWorld,isLoading };
 }
