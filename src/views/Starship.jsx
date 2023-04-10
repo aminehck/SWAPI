@@ -15,7 +15,7 @@ export default function Starship() {
     
     const navigate = useNavigate();
     const { id } = useParams();
-    const [starship, setStarship] = useState({});
+    const [starship, setStarship] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { isLoading: isLoadingStarship, pilots, films } = useStarship(starship);
     

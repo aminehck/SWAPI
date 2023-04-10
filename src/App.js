@@ -19,7 +19,6 @@ function App() {
 					<Navbar />
 					<Routes>
 						<Route exact path="/" element={<Home/>} />
-						<Route path="/starships" element={<Home/>} />
 						<Route path="/starships/:id" element={<Starship/>} />
 						<Route path="/films" element={<Films/>} />
 						<Route path="/films/:id" element={<Film/>} />
